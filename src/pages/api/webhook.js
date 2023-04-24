@@ -1,7 +1,6 @@
 import { buffer } from "micro";
 import * as admin from "firebase-admin";
 
-// Secure a connection to Firebase from the backend
 const serviceAccount = require("../../../permissions.json");
 
 const app = !admin.apps.length
@@ -10,7 +9,6 @@ const app = !admin.apps.length
     })
   : admin.app();
 
-// Establish connection to Stripe
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const endpointSecret = process.env.STRIPE_SIGNING_SECRET;
 
@@ -43,7 +41,6 @@ export default async (req, res) => {
 
     let event;
 
-    // Verify that the event posted came from Stripe
     try {
       event = stripe.webhooks.constructEvent(payload, sig, endpointSecret);
     } catch (err) {
@@ -51,11 +48,9 @@ export default async (req, res) => {
       return res.status(400).send(`Webhook error: ${err.message}`);
     }
 
-    // Handle the ceckout.session.completed event
     if (event.type === "checkout.session.completed") {
       const session = event.data.object;
 
-      // Fulfill the order
       return fulfillOrder(session)
         .then(() => res.status(200))
         .catch((err) => res.status(400).send(`Webhook Error: ${err.message}`));

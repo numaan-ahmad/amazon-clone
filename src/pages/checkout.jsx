@@ -19,13 +19,11 @@ const Checkout = () => {
   const createCheckoutSession = async () => {
     const stripe = await stripePromise;
 
-    // Call the backend to create a checkout session
     const checkoutSession = await axios.post("/api/create-checkout-session", {
       items,
       email: session.user.email,
     });
 
-    // Redirect customer to Stripe checkout
     const result = await stripe.redirectToCheckout({
       sessionId: checkoutSession.data.id,
     });
@@ -39,7 +37,6 @@ const Checkout = () => {
     <div className="bg-gray-100">
       <Header />
       <main className="lg:flex max-w-screen-2xl mx-auto">
-        {/* Left side */}
         <div className="flex-grow m-5 shadow-sm">
           <Image
             src="/advert2.webp"
@@ -70,7 +67,6 @@ const Checkout = () => {
           </div>
         </div>
 
-        {/* Right side */}
         <div className="flex flex-col bg-white p-10 shadow-sm">
           {items.length > 0 && (
             <>

@@ -14,8 +14,6 @@ const Product = ({ id, title, price, description, category, image }) => {
     Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING
   );
   const [hasPrime] = useState(Math.random() < 0.5);
-
-  // Send the product to the Redux store
   const addItemToBasket = () => {
     dispatch(
       addToBasket({

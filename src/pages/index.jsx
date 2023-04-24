@@ -11,7 +11,7 @@ const Home = ({ products }) => {
   return (
     <div className="bg-gray-100">
       <Head>
-        <title>Amazon</title>
+        <title>Amazon-clone</title>
       </Head>
       <Header />
       <main className="max-w-screen-2xl mx-auto">

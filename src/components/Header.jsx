@@ -17,7 +17,6 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50">
-      {/* Top nav */}
       <div className="flex items-center bg-amazon_blue p-1 flex-grow py-2">
         <div className="mt-2 flex items-center flex-grow sm:flex-grow-0">
           <Image
@@ -31,7 +30,6 @@ const Header = () => {
           />
         </div>
 
-        {/* Search bar */}
         <div className="hidden sm:flex items-center h-10 rounded-md flex-grow cursor-pointer bg-yellow-400 hover:bg-yellow-500">
           <input
             className="p-2 h-full w-6 flex-grow flex-shrink rounded-l-md focus:outline-none px-4"
@@ -40,7 +38,6 @@ const Header = () => {
           <SearchIcon className="h-12 p-4" />
         </div>
 
-        {/* Right side */}
         <div className="flex items-center text-xs text-white space-x-6 mx-6 whitespace-nowrap">
           <div
             className="cursor-pointer link"
@@ -74,7 +71,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Bottom nav */}
       <div className="flex items-center space-x-3 p-2 pl-6 bg-amazon_blue-light text-white text-sm">
         <p className="link flex items-center">
           <MenuIcon className="h-6 mr-1" />

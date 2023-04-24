@@ -17,7 +17,6 @@ const CheckoutProduct = ({
 }) => {
   const dispatch = useDispatch();
 
-  // Push item into Redux
   const addItemToBasket = () => {
     dispatch(
       addToBasket({
@@ -33,7 +32,6 @@ const CheckoutProduct = ({
     );
   };
 
-  // Remove item from Redux
   const removeItemFromBasket = () => {
     dispatch(removeFromBasket({ id }));
   };
@@ -42,7 +40,6 @@ const CheckoutProduct = ({
     <div className="grid grid-cols-5">
       <Image src={image} height={200} width={200} objectFit="contain" />
 
-      {/* Middle */}
       <div className="col-span-3 mx-5">
         <p>{title}</p>
         <div className="flex">
@@ -66,7 +63,6 @@ const CheckoutProduct = ({
         )}
       </div>
 
-      {/* Right add/remove buttons */}
       <div className="flex flex-col space-y-2 my-auto justify-self-end">
         <button className="button" onClick={addItemToBasket}>
           Add to Basket
